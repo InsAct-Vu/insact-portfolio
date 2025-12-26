@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* Prevent line breaks in headings and metrics for better readability */
+  .no-break {
+    white-space: nowrap;
+  }
+
+  /* Optional: Allow breaks only at specific points if needed */
+  .break-smart {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+}
+
+/* Ensure headings and metric values stay on one line */
+h1, h2, h3 {
+  hyphens: none;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  white-space: normal;
+}
+
+/* Force h1 to never break */
+h1 {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+
+/* Specific styling for metric values to prevent breaks and overflow */
+.metric-value {
+  white-space: nowrap;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  line-height: 1.2;
+}
+
+/* Ensure metric cards have proper sizing */
+.metric-card {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

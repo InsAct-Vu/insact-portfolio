@@ -1,0 +1,47 @@
+{
+  "demographicEnrichment": {
+    "slug": "demographic-enrichment",
+    "meta": {
+      "title": "Demographic Enrichment | InsAct",
+      "description": "Census and population overlays for trade-area analysis without polygon joins. 90min → 2-5sec queries."
+    },
+    "hero": {
+      "title": "Demographic Enrichment",
+      "subtitle": "Census overlays without polygon joins"
+    },
+    "problem": "Traditional polygon-based census joins take 90 minutes and fail at scale. When analysts need demographic data for trade areas, they resort to PostGIS polygon intersections that timeout on large datasets, forcing overnight batch jobs instead of interactive exploration. Monthly compute costs spike unpredictably as polygon complexity grows.",
+    "whyTraditionalFails": "PostGIS polygon intersections don't scale in cloud warehouses. Each trade area query triggers millions of point-in-polygon calculations. Snowflake and Databricks charge by compute time, making polygon operations prohibitively expensive. Worse, results are non-deterministic—running the same query twice can produce different totals due to floating-point precision issues in polygon math.",
+    "whatWeDo": "Hierarchical spatial indexing with pre-aggregated census data at multiple resolutions. We use H3 hexagons to partition census blocks into a deterministic grid. Trade area queries become simple hexagon lookups instead of polygon operations. Data is pre-aggregated at resolutions 8-12, enabling sub-second queries regardless of trade area complexity. The entire system runs natively in your data warehouse using standard SQL.",
+    "outcome": "2-5 second queries, zero timeouts, deterministic results. Analysts iterate freely instead of waiting overnight. Compute costs drop 80-90% because hexagon lookups are orders of magnitude faster than polygon intersections. Same query always produces same result. No specialized infrastructure required."
+  },
+  "footfallAnalysis": {
+    "slug": "footfall-analysis",
+    "meta": {
+      "title": "Footfall Analysis & Attribution | InsAct",
+      "description": "Daily batch foot traffic attribution with cost-controlled, deterministic processing. $36k → $2.4k/month."
+    },
+    "hero": {
+      "title": "Footfall Analysis & Attribution",
+      "subtitle": "Daily batch, cost-controlled attribution"
+    },
+    "problem": "$36k/month compute costs and 4-6 hour daily runs make footfall attribution unsustainable. Point-in-polygon operations on billions of GPS events create massive compute bills. Analysts can't afford to iterate because each run costs hundreds of dollars. Marketing teams receive attribution data days after campaigns end, making optimization impossible.",
+    "whyTraditionalFails": "Point-in-polygon operations on billions of events don't scale. Traditional approaches use PostGIS to check if each GPS ping falls inside venue polygons. This requires computing billions of geometric intersections daily. Cloud warehouses charge by the second, turning every attribution run into a $500-1000 expense. Jobs take 4-6 hours and frequently timeout, requiring manual restarts.",
+    "whatWeDo": "H3-indexed event data with batch processing controls and deterministic attribution. GPS events are pre-indexed to H3 hexagons at ingestion. Attribution becomes a simple spatial join between hexagon sets instead of billions of point-in-polygon checks. We implement batch size controls to cap compute costs and guarantee completion times. All processing runs on standard warehouse SQL with no specialized infrastructure.",
+    "outcome": "8-15 minute runs at $2.4k/month, cost-controlled and fully deterministic. Marketing teams get attribution data the same day campaigns run, enabling real-time optimization. Analysts iterate freely because runs are fast and cheap. Zero timeout failures. Same events always produce same attribution counts."
+  },
+  "campaignAnalytics": {
+    "slug": "campaign-analytics",
+    "meta": {
+      "title": "Campaign Analytics | InsAct",
+      "description": "Location-based campaign measurement without ad-tech fluff. Batch attribution with control groups and transparent methodology."
+    },
+    "hero": {
+      "title": "Campaign Analytics",
+      "subtitle": "Measurement without ad-tech fluff"
+    },
+    "problem": "Campaign attribution is buried in vendor black boxes and ad-tech complexity. Marketing teams can't validate metrics or understand methodology. Real-time requirements force expensive streaming infrastructure. Attribution numbers vary by 20-30% depending on which vendor tool is used, eroding trust in spatial analytics.",
+    "whyTraditionalFails": "Real-time requirements force expensive streaming infrastructure and vendor lock-in. Ad-tech platforms require continuous streaming pipelines, specialized databases, and third-party attribution SDKs. Each vendor uses proprietary algorithms with different attribution windows and logic. Marketing teams receive metrics they can't replicate or audit, making data-driven decisions impossible.",
+    "whatWeDo": "Daily batch attribution with control groups, statistical validation, and transparent methodology. We build deterministic attribution pipelines that run on your data warehouse using standard SQL. Control groups enable statistical significance testing. All methodology is documented and auditable. Attribution windows and logic are configurable and version-controlled. No vendor SDKs, no black boxes, no streaming infrastructure.",
+    "outcome": "Reliable measurement, clear methodology, no vendor lock-in. Marketing teams understand exactly how attribution is calculated and can validate results independently. Statistical significance testing eliminates false positives. Attribution runs on your infrastructure using your data. Full methodology handover means you maintain everything after engagement ends."
+  }
+}

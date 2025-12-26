@@ -1,0 +1,52 @@
+{
+  "about": {
+    "meta": {
+      "title": "About InsAct | Enterprise Geospatial Data Architecture",
+      "description": "Mathematics, competitive programming, and large-scale data engineering applied to enterprise spatial analytics."
+    },
+    "hero": {
+      "title": "About InsAct",
+      "subtitle": "Deterministic spatial foundations for enterprise data warehouses"
+    },
+    "sections": [
+      {
+        "heading": "What Drives Us",
+        "content": "Interest in mathematics, geometry, graph theory, and competitive programming backgrounds. Early exposure to large-scale data systems showed us that spatial analytics doesn't have to be slow or expensive—it just requires the right foundations. The same algorithmic thinking that solves competitive programming problems applies to enterprise spatial challenges: partition the problem space, choose the right data structures, optimize for the common case, and make behavior deterministic."
+      },
+      {
+        "heading": "Team Philosophy",
+        "isQuote": true,
+        "quote": "We are a team of highly effective mathematics programmers with an extended network. We focus on research-level, practical industry solutions. Our teams continuously research new mathematical methods across graph theory, optimization, linear algebra, statistics, probability, and operations research — and turn them into reliable production systems.",
+        "attribution": "InsAct Engineering"
+      },
+      {
+        "heading": "Our Background",
+        "content": "Top-tier engineering and mathematics backgrounds with large-scale data systems experience. We've built spatial systems at TB-PB scale for enterprise data warehouses and know what works in production. Our approach combines theoretical rigor with operational discipline—systems that handle billions of records daily need both clever algorithms and boring reliability engineering."
+      }
+    ]
+  },
+  "careers": {
+    "meta": {
+      "title": "Careers at InsAct",
+      "description": "We hire selectively for mathematics, competitive programming, and systems thinking backgrounds."
+    },
+    "hero": {
+      "title": "Careers",
+      "subtitle": "We hire selectively"
+    },
+    "sections": [
+      {
+        "heading": "What We Look For",
+        "list": [
+          "Strong mathematics and competitive programming backgrounds",
+          "Systems thinking and production engineering experience",
+          "Research-level problem solving applied to industry challenges"
+        ]
+      },
+      {
+        "heading": "Current Openings",
+        "content": "No current openings. We focus on long-term research and industry impact rather than rapid scaling. We build relationships with strong engineers over time and hire when we find exceptional fits for specific challenges."
+      }
+    ]
+  }
+}

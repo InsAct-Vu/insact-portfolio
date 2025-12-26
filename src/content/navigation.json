@@ -1,0 +1,71 @@
+{
+  "logo": {
+    "src": "/insact-logo.svg",
+    "alt": "InsAct Logo",
+    "text": "InsAct"
+  },
+  "menuItems": [
+    {
+      "label": "Home",
+      "path": "/",
+      "type": "link"
+    },
+    {
+      "label": "Products",
+      "type": "dropdown",
+      "items": [
+        {
+          "label": "Demographic Enrichment",
+          "path": "/products/demographic-enrichment",
+          "description": "Census overlays without polygon joins"
+        },
+        {
+          "label": "Footfall Analysis",
+          "path": "/products/footfall-analysis",
+          "description": "Daily batch, cost-controlled attribution"
+        },
+        {
+          "label": "Campaign Analytics",
+          "path": "/products/campaign-analytics",
+          "description": "Measurement without ad-tech fluff"
+        }
+      ]
+    },
+    {
+      "label": "Expertise",
+      "type": "dropdown",
+      "items": [
+        {
+          "label": "Geospatial Data at Scale",
+          "path": "/expertise/geospatial-data",
+          "description": "TB-PB scale engineering"
+        },
+        {
+          "label": "POI Enrichment",
+          "path": "/expertise/poi-enrichment",
+          "description": "Deterministic enrichment architecture"
+        },
+        {
+          "label": "Footfall Systems",
+          "path": "/expertise/footfall-systems",
+          "description": "Batch processing with cost controls"
+        },
+        {
+          "label": "Campaign Measurement",
+          "path": "/expertise/campaign-measurement",
+          "description": "Attribution engineering"
+        }
+      ]
+    },
+    {
+      "label": "Careers",
+      "path": "/careers",
+      "type": "link"
+    },
+    {
+      "label": "About",
+      "path": "/about",
+      "type": "link"
+    }
+  ]
+}

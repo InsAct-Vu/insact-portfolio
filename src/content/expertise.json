@@ -1,0 +1,134 @@
+{
+  "geospatialData": {
+    "slug": "geospatial-data",
+    "meta": {
+      "title": "Geospatial Data at TB-PB Scale | InsAct",
+      "description": "Engineering approaches to warehouse-native spatial analytics at terabyte to petabyte scale."
+    },
+    "hero": {
+      "title": "Geospatial Data at TB-PB Scale",
+      "subtitle": "Warehouse-native spatial analytics for enterprise data teams"
+    },
+    "content": [
+      {
+        "heading": "The Scale Challenge",
+        "body": "Polygon-based spatial operations don't scale in modern data warehouses. When datasets grow beyond tens of millions of records, traditional PostGIS approaches create exponential query times and compute costs. Enterprises face a choice: limit spatial analysis to small samples, or spend thousands per query on specialized infrastructure. Neither is acceptable."
+      },
+      {
+        "heading": "Hierarchical Spatial Indexing",
+        "body": "H3 and S2 provide deterministic, multi-resolution spatial foundations that scale linearly with data size. Unlike polygons, which require expensive geometric intersection calculations, hierarchical grids partition space into discrete cells with predictable lookup costs. Spatial joins become simple integer matches instead of floating-point geometry operations. Query time remains constant regardless of polygon complexity."
+      },
+      {
+        "heading": "Warehouse-Native Execution",
+        "body": "All spatial operations run natively on Snowflake, Databricks, and BigQuery using standard SQL. No specialized spatial databases. No external processing engines. No data movement. Spatial analytics leverage the same columnar storage, query optimization, and distributed execution that makes data warehouses fast for analytical workloads. Compute costs scale predictably with data size, not query complexity."
+      },
+      {
+        "heading": "Deterministic Multi-Resolution Analytics",
+        "body": "Pre-aggregating data at multiple spatial resolutions enables sub-second queries at any zoom level. H3 resolutions 8-12 cover use cases from neighborhood analysis to national aggregates. All aggregations are deterministic—same input produces same output every time. No floating-point precision issues. No edge case failures. Analysts trust metrics because they're mathematically consistent."
+      },
+      {
+        "heading": "Production Engineering at Scale",
+        "body": "Building spatial systems that handle petabytes requires thinking beyond algorithms to operational reliability. We implement incremental updates, partition pruning, and cost controls that keep production systems running predictably. Query plans are version-controlled. Performance is monitored. Failure modes are documented. The goal is systems that work consistently, not cleverness that breaks under load."
+      }
+    ]
+  },
+  "poiEnrichment": {
+    "slug": "poi-enrichment",
+    "meta": {
+      "title": "POI Enrichment Architecture | InsAct",
+      "description": "Deterministic POI enrichment systems that run natively in data warehouses without specialized infrastructure."
+    },
+    "hero": {
+      "title": "POI Enrichment Architecture",
+      "subtitle": "Deterministic enrichment systems"
+    },
+    "content": [
+      {
+        "heading": "The POI Enrichment Problem",
+        "body": "Enriching locations with nearby points of interest requires spatial radius queries that don't scale. Traditional approaches use PostGIS buffer operations to find POIs within X meters of each location. This works for hundreds of locations but fails at enterprise scale. Each buffer query triggers thousands of geometric calculations, turning simple enrichment into hour-long batch jobs."
+      },
+      {
+        "heading": "H3-Based POI Indexing",
+        "body": "Index both locations and POIs to H3 hexagons at appropriate resolution. Radius queries become k-ring hexagon lookups—purely integer operations with deterministic results. Finding POIs within 500m means checking hexagons within k-ring distance 6 at resolution 10. No geometry, no buffers, no floating-point math. Query time is proportional to the number of hexagons checked, not the complexity of geometries."
+      },
+      {
+        "heading": "Multi-Attribute Enrichment",
+        "body": "POI enrichment isn't just about distance—it's about understanding location context through nearby amenities, businesses, and infrastructure. We pre-aggregate POI counts and categories by hexagon, enabling queries like 'how many coffee shops within 10 minutes walk' to run in milliseconds. All aggregations are versioned and reproducible. Same location always gets same enrichment values."
+      },
+      {
+        "heading": "Incremental Updates",
+        "body": "POI datasets change daily. Production systems need incremental updates that don't require full reprocessing. We partition POI data by hexagon and update only changed cells. New POIs are indexed on arrival. Removed POIs are tombstoned. Analysts always work with current data without waiting for overnight batch refreshes. Update costs scale with change volume, not dataset size."
+      },
+      {
+        "heading": "Quality and Consistency",
+        "body": "POI data is messy. Duplicate entries, incorrect coordinates, and inconsistent categories are common. We implement deduplication logic, geocoding validation, and category standardization as SQL transforms in the warehouse. All cleaning logic is version-controlled and testable. Data quality metrics are tracked. The goal is enrichment systems that produce reliable results, not garbage-in-garbage-out pipelines."
+      }
+    ]
+  },
+  "footfallSystems": {
+    "slug": "footfall-systems",
+    "meta": {
+      "title": "Footfall Systems | InsAct",
+      "description": "Daily batch foot traffic processing with cost controls and deterministic attribution at billion-event scale."
+    },
+    "hero": {
+      "title": "Footfall Systems",
+      "subtitle": "Batch processing with cost controls"
+    },
+    "content": [
+      {
+        "heading": "Production Footfall Processing",
+        "body": "Processing billions of GPS events daily for venue attribution requires systems that balance speed, cost, and reliability. Real-time streaming sounds appealing but forces expensive infrastructure and complex failure recovery. Daily batch processing provides the same business value—marketing teams optimize campaigns with yesterday's data, not real-time feeds—at 10x lower cost and 100x less operational complexity."
+      },
+      {
+        "heading": "H3-Indexed Event Processing",
+        "body": "GPS events arrive as latitude-longitude coordinates. Pre-indexing to H3 hexagons at ingestion transforms expensive spatial joins into simple integer matches. Attribution checks if event hexagons intersect venue hexagon sets rather than computing point-in-polygon for every event. Processing time drops from hours to minutes. Compute costs fall by 90% because hexagon joins are orders of magnitude faster than geometric operations."
+      },
+      {
+        "heading": "Cost Control and Guarantees",
+        "body": "Cloud data warehouses charge by compute time. Runaway queries can cost thousands. We implement batch size controls, query timeouts, and cost monitoring that guarantee daily runs complete within budget. If daily event volume spikes, processing splits across multiple batches rather than running a single expensive query. Teams know exactly what footfall processing costs each month."
+      },
+      {
+        "heading": "Deterministic Attribution Logic",
+        "body": "Attribution rules must be explicit and reproducible. We implement visit detection, dwell time calculation, and venue matching as versioned SQL logic in the warehouse. Same events always produce same attribution counts. Changes to attribution logic are tracked in version control. Analysts can reproduce historical metrics exactly. No proprietary algorithms, no vendor black boxes, no unexplained metric changes."
+      },
+      {
+        "heading": "Monitoring and Validation",
+        "body": "Production footfall systems need monitoring beyond 'did the job succeed.' We track event volumes, attribution rates, venue coverage, and processing costs daily. Anomalies trigger alerts. Data quality metrics are surfaced. The goal is systems that operators trust because they understand exactly how they work and can detect when something goes wrong."
+      }
+    ]
+  },
+  "campaignMeasurement": {
+    "slug": "campaign-measurement",
+    "meta": {
+      "title": "Effective Campaign Measurement | InsAct",
+      "description": "Location-based campaign attribution without ad-tech fluff. Statistical rigor, transparent methodology, no vendor lock-in."
+    },
+    "hero": {
+      "title": "Effective Campaign Measurement",
+      "subtitle": "Attribution engineering without ad-tech fluff"
+    },
+    "content": [
+      {
+        "heading": "The Campaign Attribution Problem",
+        "body": "Marketing teams need to know if location-based campaigns drive foot traffic. Ad-tech vendors promise attribution but deliver black boxes—proprietary algorithms that produce numbers teams can't validate or replicate. Worse, different vendors report attribution lifts that vary by 30-50% for the same campaign. When metrics are unreliable, data-driven decisions become impossible."
+      },
+      {
+        "heading": "Control Group Methodology",
+        "body": "Valid attribution requires control groups. We implement matched-market designs where half of locations receive campaigns and half don't. Statistical significance testing determines if observed traffic increases are real or noise. This is basic experimental design, not rocket science, but most ad-tech platforms skip it because vendors are incentivized to report positive results regardless of validity."
+      },
+      {
+        "heading": "Transparent Attribution Logic",
+        "body": "All attribution calculations run as SQL in your data warehouse using documented methodology. Attribution windows, visit definitions, and lift calculations are explicit and version-controlled. Marketing teams can audit results independently. Data scientists can modify logic to test hypotheses. No vendor SDKs, no external APIs, no hidden assumptions. If you don't understand the methodology, you don't trust the metrics."
+      },
+      {
+        "heading": "Incremental Testing",
+        "body": "Campaign effectiveness varies by location, time, and audience. Instead of all-or-nothing launches, we implement incremental testing frameworks that measure effectiveness across dimensions. Which markets respond best? What messaging works? How long do attribution windows need to be? Answering these questions requires systems designed for iteration, not one-off campaign measurement."
+      },
+      {
+        "heading": "Full Methodology Handover",
+        "body": "At engagement end, marketing teams own the complete attribution system. SQL logic is documented. Statistical methodology is explained. Monitoring dashboards are set up. The goal is independence, not vendor lock-in. Teams maintain and modify attribution logic as business needs evolve. No recurring licensing fees, no proprietary dependencies, no knowledge held hostage by consultants."
+      }
+    ]
+  }
+}

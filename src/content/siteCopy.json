@@ -1,0 +1,140 @@
+{
+  "positioning": {
+    "headline": "Cut Spatial Analytics Costs by 50–90%",
+    "subheadline": "Replace slow, fragile polygon-based pipelines with fast, deterministic spatial foundations that run natively in your existing data warehouse."
+  },
+  "problemSpace": {
+    "title": "If This Sounds Familiar, We Can Help",
+    "intro": "Most enterprise spatial analytics teams face the same expensive problems:",
+    "problems": [
+      "Spatial queries that take 30–90 minutes force analysts to run batch jobs overnight instead of iterating interactively.",
+      "Cloud compute costs spike unpredictably ($20k-50k/month) because polygon operations don't scale in modern data warehouses.",
+      "Analysts avoid spatial analysis entirely because it's too slow, leaving valuable location insights unused.",
+      "Engineering teams spend days maintaining fragile spatial pipelines instead of building new features.",
+      "Leadership loses trust in spatial metrics when numbers don't match across different team queries or zoom levels."
+    ]
+  },
+  "valueProposition": {
+    "title": "What Changes with InsAct",
+    "intro": "We rebuild your spatial data foundations so queries that took hours now run in seconds—on your existing Snowflake, Databricks, or BigQuery infrastructure.",
+    "benefits": [
+      {
+        "title": "Queries Become Fast",
+        "description": "Spatial analysis runs in 2-15 seconds instead of 30-90 minutes. Analysts iterate freely instead of waiting for overnight batch jobs."
+      },
+      {
+        "title": "Costs Become Predictable",
+        "description": "Eliminate specialized spatial databases. Run everything on standard compute. Monthly spatial costs drop 50-93%."
+      },
+      {
+        "title": "Results Become Reliable",
+        "description": "Metrics are mathematically consistent across all queries and zoom levels. No more unexplained discrepancies or client escalations."
+      }
+    ]
+  },
+  "outcomes": {
+    "title": "Proven Results",
+    "subtitle": "Real client outcomes after implementation",
+    "metrics": [
+      {
+        "value": "90 min → 2-5 sec",
+        "label": "Query time for Census trade area enrichment"
+      },
+      {
+        "value": "$36k → $2.4k/month",
+        "label": "Spatial compute costs for daily foot traffic attribution"
+      },
+      {
+        "value": "67%",
+        "label": "Reduction in storage costs for multi-resolution analytics"
+      },
+      {
+        "value": "Zero",
+        "label": "Timeout failures after migration from polygon-based approach"
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Use Cases",
+    "cases": [
+      {
+        "title": "Trade Area Enrichment with Census Data",
+        "problem": "90-minute queries and multi-day data updates make iterative trade area analysis impossible.",
+        "result": "2-5 second queries. Daily automated Census updates. Analysts iterate freely.",
+        "why": "Retailers can test multiple trade area definitions per day instead of abandoning refinement after the first pass. Location decisions improve measurably."
+      },
+      {
+        "title": "Daily Foot Traffic Attribution",
+        "problem": "$36k/month in compute costs. 4-6 hour daily runs. Data arrives after campaigns end.",
+        "result": "8-15 minute runs at $2.4k/month. Marketing teams optimize campaigns the same day.",
+        "why": "Real-time campaign optimization saves more than the entire spatial infrastructure cost. SLA breaches drop to zero."
+      },
+      {
+        "title": "Multi-Resolution Spatial Analytics",
+        "problem": "3 separate datasets create inconsistent metrics across zoom levels. Client trust erodes.",
+        "result": "Single dataset. Guaranteed consistency. 67% lower storage costs.",
+        "why": "Clients stop questioning metric accuracy. Support escalations drop. Contract renewals de-risk."
+      }
+    ]
+  },
+  "riskReduction": {
+    "title": "Why This Is Safe",
+    "questions": [
+      {
+        "question": "Does this require rebuilding our entire stack?",
+        "answer": "No. We work within your existing data warehouse (Snowflake, Databricks, BigQuery). No new infrastructure required."
+      },
+      {
+        "question": "Do we lose control of our data?",
+        "answer": "No. All data stays in your warehouse. You own the outputs. We provide methodology, not a black box."
+      },
+      {
+        "question": "Are we locked into InsAct after the engagement?",
+        "answer": "No. We hand over production-ready datasets and full documentation. Your team can maintain it independently."
+      },
+      {
+        "question": "Is this experimental or cutting-edge?",
+        "answer": "No. This approach has been proven at scale by Uber, Meta, and DoorDash. We've productized it for the enterprise."
+      }
+    ]
+  },
+  "engagement": {
+    "title": "How Engagements Work",
+    "model": [
+      {
+        "title": "6-8 Week Proof of Concept",
+        "description": "We use your actual data to validate 10x+ performance improvement and 50%+ cost reduction. Investment: $40k-$80k."
+      },
+      {
+        "title": "Success Criteria",
+        "description": "You decide success metrics upfront (query time, cost, reliability). If we don't hit them, you don't move forward."
+      },
+      {
+        "title": "Full Handover",
+        "description": "Production-ready datasets, methodology documentation, and team training. You own and maintain everything after."
+      }
+    ],
+    "shouldNotEngage": {
+      "title": "You Should NOT Engage Us If:",
+      "reasons": [
+        "Your spatial queries already run in under 10 seconds consistently.",
+        "You're spending less than $5k/month on spatial compute and don't see it as a problem.",
+        "You need real-time streaming location data processing (we focus on analytical workloads).",
+        "You're looking for a dashboard or BI tool (we build data foundations, not UIs)."
+      ]
+    }
+  },
+  "cta": {
+    "text": "Talk to a Spatial Architect",
+    "description": "Discuss your current spatial costs and see if we can reduce them by 50-90%."
+  },
+  "footer": {
+    "name": "InsAct",
+    "title": "Scalable Geo-Analytics Foundations",
+    "ctaText": "Talk to a Spatial Architect"
+  },
+  "meta": {
+    "title": "InsAct — Cut Spatial Analytics Costs by 50-90%",
+    "description": "Replace slow, expensive polygon-based spatial pipelines with fast, deterministic foundations. Proven results: 90min → 2sec queries, $36k → $2.4k/month."
+  }
+}
